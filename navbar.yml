@@ -1,0 +1,6 @@
+user:
+  'Chat': 'chat.chat_index'
+
+admin:
+  'Chat': 'chat.chat_index'
+
