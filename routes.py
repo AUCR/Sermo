@@ -5,6 +5,7 @@ from flask import session, redirect, url_for, render_template, request
 from flask_login import current_user, login_required
 from app.plugins.Sermo.forms import ChatForm
 from app.plugins.Sermo import events
+from app.plugins.auth.utils import get_group_permission_navbar
 
 chat_page = Blueprint('chat', __name__, template_folder='templates')
 
@@ -19,7 +20,7 @@ def chat_index():
         return redirect(url_for('chat.chat_room'))
     elif request.method == 'GET':
         form.room.data = session.get('room', '')
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, current_user_navbar=get_group_permission_navbar())
 
 
 @chat_page.route('/room')
@@ -29,4 +30,5 @@ def chat_room():
     room = session.get('room', '')
     if room == '':
         return redirect(url_for('main.index'))
-    return render_template('chat.html', name=current_user.username, room=room)
+    return render_template('chat.html', name=current_user.username, room=room,
+                           current_user_navbar=get_group_permission_navbar())
