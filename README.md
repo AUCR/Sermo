@@ -20,5 +20,5 @@ From the AUCR/app/plugins dir just git clone https://github.com/AUCR/Sermo and r
     cd AUCR/app/plugins
     git clone https://github.com/AUCR/Sermo
     cd ../..
-    EXPORT FLASK_APP=aucr.py
+    export FLASK_APP=aucr.py
     flask run --host=127.0.0.1
