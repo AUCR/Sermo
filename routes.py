@@ -10,11 +10,11 @@ from app.plugins.Sermo import events
 chat_page = Blueprint('chat', __name__, template_folder='templates')
 
 
-@chat_page.route('/room')
+@chat_page.route('/room/<room>')
 @login_required
-def chat_room():
+def chat_room(room):
     """Chat room. The user's name and room must be stored in the session."""
-    room = session['room']
+    room = room
     if room == '':
         return redirect(url_for('main.index'))
     return render_template('chat.html', name=current_user.username, room=room)
