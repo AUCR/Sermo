@@ -7,7 +7,7 @@ from app import socketio, db
 from app.plugins.Sermo.models import Chat
 
 
-@socketio.on('joined', namespace='/room')
+@socketio.on('joined', namespace='/room/')
 def joined(message):
     """Sent by clients when they enter a room.
     A status message is broadcast to all people in the room."""
@@ -20,7 +20,7 @@ def joined(message):
         db.session.commit()
 
 
-@socketio.on('text', namespace='/room')
+@socketio.on('text', namespace='/room/')
 def text(message):
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
@@ -32,7 +32,7 @@ def text(message):
         db.session.commit()
 
 
-@socketio.on('left', namespace='/room')
+@socketio.on('left', namespace='/room/')
 def left(message):
     """Sent by clients when they leave a room.
     A status message is broadcast to all people in the room."""
