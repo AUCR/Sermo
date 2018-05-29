@@ -42,9 +42,20 @@
 
 {% block app_content %}
     <main class="mdl-layout__content">
-        <h2>{{ room }}</h2>
-        <textarea id="chat" cols="80" rows="20"></textarea><br><br>
-        <input id="text" size="80" placeholder="Enter your chat message here"><br><br>
-        <a href="#" onclick="leave_room();">Leave this room</a>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+                <div class="mdl-card__title">
+                    <h3>{{ room }}</h3>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                <div class="mdl-card__actions mdl-card--border ">
+                    <textarea id="chat" class="mdl-textfield__input" cols="80" rows="20" readonly></textarea><br><br>
+                    <input id="text" class="mdl-textfield__input" size="82" placeholder="Enter your chat message here"><br><br>
+                    <a onclick="leave_room();" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        {{ _('Leave this room') }}
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 {% endblock %}

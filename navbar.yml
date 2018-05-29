@@ -1,2 +1,2 @@
 main:
-  user: [Chat: 'chat.chat_index']
+  user: [chat: 'chat.chat_index']
