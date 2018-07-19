@@ -32,7 +32,7 @@ def chat_index():
         return redirect(url_for_string)
     elif request.method == 'GET':
         form.room.data = session.get('room', '')
-    return render_template('index.html', form=form)
+        return render_template('rooms.html', form=form)
 
 
 

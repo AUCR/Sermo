@@ -10,7 +10,7 @@ class Chat(db.Model):
     __tablename__ = "chat"
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(64), db.ForeignKey('user.username'))
-    message = db.Column(db.String(2048), index=True)
+    message = db.Column(db.String(512), index=True)
     room = db.Column(db.String(16), index=True)
     timestamp = db.Column(db.DateTime, index=True, default=udatetime.utcnow)
 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <main class="mdl-layout__content">
+        <div class="mdl-layout-spacer"></div>
+        <div class="page-content">
+                <form class="form" method="post" role="form">
+                {{ form.hidden_tag() }}
+                {% with form_object=room, form_object_name="room", form_object_rows=1, form_object_label="Room", form_object_value=form.data.room  if form.data.room != None else "" %}
+                    {% include "subtemplates/_form_object_textfield_singleline.html" %}
+                {% endwith %}
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                        value=data-val.value>
+                    Join
+                </button>
+                </form>
+            </div>
+        <div class="mdl-layout-spacer"></div>
+    </main>
+{% endblock %}
