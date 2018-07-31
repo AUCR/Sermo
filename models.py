@@ -7,6 +7,7 @@ from app import db
 class Chat(db.Model):
     """Chat Database Table."""
 
+    __searchable__ = ['id', 'author', 'message', 'room', 'timestamp']
     __tablename__ = "chat"
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(64), db.ForeignKey('user.username'))
