@@ -1,2 +1,8 @@
 main:
-  user: [chat: 'chat.chat_index']
+    user: [
+        link: [
+              page: 'chat.chat_index',
+              icon: 'chat',
+              title: 'Chat'
+            ]
+      ]
