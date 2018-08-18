@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired
 
 class ChatForm(FlaskForm):
     """Accepts a room name."""
-    room = StringField('Room', validators=[DataRequired()])
-    submit = SubmitField('Enter Chat room')
+    room = StringField('room', validators=[DataRequired()])
+    submit = SubmitField('Join')

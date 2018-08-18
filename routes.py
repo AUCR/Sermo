@@ -24,15 +24,15 @@ def chat_room(room):
 @login_required
 def chat_index():
     """Login form to enter a room."""
-    form = ChatForm()
-    if form.validate_on_submit():
-        room = form.room.data
-        session['room'] = room
-        url_for_string = url_for('chat.chat_room', room=room)
-        return redirect(url_for_string)
-    elif request.method == 'GET':
+    if request.method == 'POST':
+        form = ChatForm(request.form)
+        if form.validate_on_submit():
+            room = form.room.data
+            session['room'] = room
+            url_for_string = url_for('chat.chat_room', room=room)
+            return redirect(url_for_string)
+        return render_template('rooms.html', form=form)
+    if request.method == 'GET':
+        form = ChatForm()
         form.room.data = session.get('room', '')
         return render_template('rooms.html', form=form)
-
-
-

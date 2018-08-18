@@ -7,8 +7,8 @@
         <div class="page-content">
                 <form class="form" method="post" role="form">
                 {{ form.hidden_tag() }}
-                {% with form_object=room, form_object_name="room", form_object_rows=1, form_object_label="Room", form_object_value=form.data.room  if form.data.room != None else "" %}
-                    {% include "subtemplates/_form_object_textfield_singleline.html" %}
+                {% with form_object=room, form_object_name="room", form_object_rows=1, form_object_label="Room", form_object_value=form.data.room if form.data.room != None else "", form_text_type="text" %}
+                    {% include "subtemplates/_form_object_textfield_singleline_required.html" %}
                 {% endwith %}
                 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                         value=data-val.value>
