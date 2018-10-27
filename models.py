@@ -1,7 +1,7 @@
 """AUCR Chat plugin database table model handler."""
 #  coding=utf-8
 import udatetime
-from app import db
+from aucr_app import db
 
 
 class Rooms(db.Model):

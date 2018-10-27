@@ -14,10 +14,10 @@ Please contact us in the organization slack and join the Sermo room to ask any q
 
 ## How to install
 
-From the AUCR/app/plugins dir just git clone https://github.com/AUCR/Sermo and run the flask app.
+From the AUCR/aucr_app/plugins dir just git clone https://github.com/AUCR/Sermo and run the flask app.
 
     git clone https://github.com/AUCR/AUCR
-    cd AUCR/app/plugins
+    cd AUCR/aucr_app/plugins
     git clone https://github.com/AUCR/Sermo
     cd ../..
     export FLASK_APP=aucr.py

@@ -3,8 +3,8 @@
 from flask import session
 from flask_login import current_user
 from flask_socketio import emit, join_room, leave_room
-from app import socketio, db
-from app.plugins.Sermo.models import Chat
+from aucr_app import socketio, db
+from aucr_app.plugins.Sermo.models import Chat
 
 
 @socketio.on('joined', namespace='/room/')

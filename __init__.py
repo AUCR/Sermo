@@ -1,7 +1,7 @@
 """AUCR chat plugin."""
 # coding=utf-8
-from app.plugins.Sermo.routes import chat_page
-from app.plugins.Sermo import routes, events
+from aucr_app.plugins.Sermo.routes import chat_page
+from aucr_app.plugins.Sermo import routes, events
 
 
 def load(app):

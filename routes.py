@@ -1,12 +1,12 @@
 """AUCR chat plugin route page handler."""
 # coding=utf-8
-from app import db
+from aucr_app import db
 from flask import Blueprint
 from flask import session, redirect, url_for, render_template, request, flash
 from flask_login import current_user, login_required
-from app.plugins.Sermo.forms import ChatForm
-from app.plugins.Sermo import events
-from app.plugins.Sermo.models import Rooms
+from aucr_app.plugins.Sermo.forms import ChatForm
+from aucr_app.plugins.Sermo import events
+from aucr_app.plugins.Sermo.models import Rooms
 
 
 chat_page = Blueprint('chat', __name__, template_folder='templates')
