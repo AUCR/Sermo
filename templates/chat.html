@@ -10,7 +10,7 @@
     <script type="text/javascript" charset="utf-8">
         var socket;
         $(document).ready(function(){
-            socket = io.connect('http://' + document.domain + ':' + location.port + '/room/');
+            socket = io.connect('https://' + document.domain + ':' + location.port + '/room/');
             socket.on('connect', function() {
                 socket.emit('joined', {});
             });
