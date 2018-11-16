@@ -6,7 +6,7 @@
         <div class="page-content mdl-cell mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
             <section>
                 {% if room_dict %}
-                    {% with table_dict=room_dict, table_header=["Current Rooms"], url_for_value='chat.chat_room' %}
+                    {% with table_dict=room_dict, table_header=["Current Rooms", "Created Time", "Created By", "Total Messages"], url_for_value='chat.chat_room' %}
                         {% include "subtemplates/_table_object_with_name.html" %}
                     {% endwith %}
                 {% endif %}

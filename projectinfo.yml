@@ -1,0 +1,19 @@
+info:
+  project_name: "AUCR Sermo Plugin"
+  project_start_date: 03/25/2018
+  name: "Sermo "
+  authors: "Wyatt Roersma, Andrew Orr, Devin Smith"
+  authors_email: "wyattroersma@gmail.com"
+  description: "A chat plugin for AUCR."
+  license: 'GPL-3.0'
+  classifiers:
+    - 'Development Status :: 4 - Beta'
+    - 'Intended Audience :: Developers'
+    - 'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)'
+    - 'Programming Language :: Python :: 3.6'
+
+version:
+  major: 0
+  minor: 0
+  revision: 0
+  release: 1

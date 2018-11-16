@@ -2,11 +2,11 @@
 # coding=utf-8
 from aucr_app import db
 from flask import Blueprint
-from flask import session, redirect, url_for, render_template, request, flash
+from flask import session, redirect, url_for, render_template, request
 from flask_login import current_user, login_required
 from aucr_app.plugins.Sermo.forms import ChatForm
-from aucr_app.plugins.Sermo import events
-from aucr_app.plugins.Sermo.models import Rooms
+from aucr_app.plugins.Sermo.models import Rooms, Chat
+from aucr_app.plugins.auth.models import User
 
 
 chat_page = Blueprint('chat', __name__, template_folder='templates')
@@ -38,13 +38,16 @@ def chat_index():
             session['room'] = room
             url_for_string = url_for('chat.chat_room', room=room)
             return redirect(url_for_string)
+        form = ChatForm()
         return render_template('rooms.html', form=form)
     if request.method == 'GET':
         room_list = Rooms.query.all()
         room_dict = {}
         for item in room_list:
-            item_dict = {"name": item.room_name}
+            author_name = User.query.filter_by(id=item.author_id).first()
+            message_count = len(Chat.query.filter_by(room=item.room_name).all())
+            item_dict = {"name": item.room_name, "created": item.timestamp, "author": author_name.username,
+                         "message_count": message_count}
             room_dict[str(item.id)] = item_dict
         form = ChatForm()
-        form.room.data = session.get('room', '')
         return render_template('rooms.html', form=form, room_dict=room_dict)
