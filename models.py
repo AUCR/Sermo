@@ -9,7 +9,7 @@ class Rooms(db.Model):
 
     __tablename__ = "chat_rooms"
     id = db.Column(db.Integer, primary_key=True)
-    room_name = db.Column(db.String(64), index=True)
+    room_name = db.Column(db.String(64), unique=True)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     timestamp = db.Column(db.DateTime, index=True, default=udatetime.utcnow)
 
@@ -26,7 +26,7 @@ class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(64), db.ForeignKey('user.username'))
     message = db.Column(db.String(512), index=True)
-    room = db.Column(db.String(64), db.ForeignKey('chat_rooms.room_name'))
+    room_name = db.Column(db.String(64), db.ForeignKey('chat_rooms.room_name'))
     timestamp = db.Column(db.DateTime, index=True, default=udatetime.utcnow)
 
     def __repr__(self):
