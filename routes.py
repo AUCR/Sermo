@@ -19,7 +19,7 @@ def chat_room(room):
     room = room
     if room == '':
         return redirect(url_for('main.index'))
-    return render_template('chat.html', name=current_user.username, room=room)
+    return render_template('chat.html', name=current_user.username, room_name=room)
 
 
 @chat_page.route('/', methods=['GET', 'POST'])
@@ -45,7 +45,7 @@ def chat_index():
         room_dict = {}
         for item in room_list:
             author_name = User.query.filter_by(id=item.author_id).first()
-            message_count = len(Chat.query.filter_by(room=item.room_name).all())
+            message_count = len(Chat.query.filter_by(room_name=item.room_name).all())
             item_dict = {"name": item.room_name, "created": item.timestamp, "author": author_name.username,
                          "message_count": message_count}
             room_dict[str(item.id)] = item_dict
