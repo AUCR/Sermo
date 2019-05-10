@@ -35,8 +35,8 @@ def chat_index():
                 new_room = Rooms(room_name=room, author_id=current_user.id)
                 db.session.add(new_room)
                 db.session.commit()
-            session['room'] = room
-            url_for_string = url_for('chat.chat_room', room_name=room)
+            session['room_name'] = room
+            url_for_string = url_for('chat.chat_room', room=room)
             return redirect(url_for_string)
         form = ChatForm()
         return render_template('rooms.html', form=form)
